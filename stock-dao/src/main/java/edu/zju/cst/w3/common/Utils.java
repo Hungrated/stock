@@ -23,7 +23,7 @@ public class Utils {
             // CSVReader csvReader = new CSVReader(new InputStreamReader(in, "GBK"));
             CSVReader csvReader = new CSVReader(new InputStreamReader(in, "utf-8"),
                     CSVParser.DEFAULT_SEPARATOR, CSVParser.DEFAULT_QUOTE_CHARACTER,
-                    CSVParser.DEFAULT_ESCAPE_CHARACTER, 1);
+                    CSVParser.DEFAULT_ESCAPE_CHARACTER, 0);
             String[] strings;
             while ((strings = csvReader.readNext()) != null) {
                 list.add(strings);
@@ -36,7 +36,7 @@ public class Utils {
         return list;
     }
 
-    public static void writeFile(String path, String[] strArr, List<String[]> list) {
+    public static void writeFile(String path, List<String[]> list) {
         File csv = new File(path);
         if (!csv.exists()) {
             try {
@@ -48,9 +48,7 @@ public class Utils {
         try {
             CSVWriter writer = new CSVWriter(new OutputStreamWriter(new FileOutputStream(csv), "utf-8"),
                     CSVWriter.DEFAULT_SEPARATOR, CSVWriter.DEFAULT_QUOTE_CHARACTER);
-            writer.writeNext(strArr);
             writer.writeAll(list);
-            writer.flush();
             writer.close();
         } catch (Exception e) {
             e.printStackTrace();

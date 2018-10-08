@@ -3,12 +3,13 @@ package edu.zju.cst.w3.common;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import edu.zju.cst.w3.model.Stock;
 
 public class StockDataBase {
-    private static String CSV_DIR = "src/main/resources/stock.csv";
+    private static String CSV_DIR = "../stock.csv";
     private List<Stock> stockList;
 
     public StockDataBase() throws ParseException {
@@ -32,11 +33,9 @@ public class StockDataBase {
         }
     }
 
-    public void save(Stock stock, List<Stock> list) {
+    public void save(List<Stock> list) {
         List<String[]> stringArrayList = Utils.parseStringArrayList(list);
-        String[] line = {stock.getId(), stock.getName(),
-                Double.toString(stock.getClosingPrice()), Utils.convertDateToString(stock.getDate())};
-        Utils.writeFile(CSV_DIR, line, stringArrayList);
+        Utils.writeFile(CSV_DIR, stringArrayList);
     }
 
     public List<Stock> queryAllById(String stockId) {
@@ -60,13 +59,14 @@ public class StockDataBase {
         return res;
     }
 
-    public Stock queryLastById(String stockId) {
+    public List<Stock> queryAllByDateRange(Date startDate, Date endDate) {
         List<Stock> res = new ArrayList<Stock>();
         for (Stock stock : stockList) {
-            if (stock.getId() == stockId) {
+            if ((stock.getDate().getTime() >= startDate.getTime())
+                    && (stock.getDate().getTime() <= endDate.getTime())) {
                 res.add(stock);
             }
         }
-        return res.get(res.size() - 1);
+        return res;
     }
 }

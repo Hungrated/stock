@@ -1,0 +1,96 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] stock                                                              [pom]
+[INFO] stock-dao                                                          [jar]
+[INFO] stock-service                                                      [jar]
+[INFO] 
+[INFO] ------------------------< edu.zju.cst.w3:stock >------------------------
+[INFO] Building stock 0.0.1-SNAPSHOT                                      [1/3]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] ----------------------< edu.zju.cst.w3:stock-dao >----------------------
+[INFO] Building stock-dao 0.0.1-SNAPSHOT                                  [2/3]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ stock-dao ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ stock-dao ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ stock-dao ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/hungrated/Documents/Codes/IDEA/stock/stock-dao/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ stock-dao ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to /Users/hungrated/Documents/Codes/IDEA/stock/stock-dao/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ stock-dao ---
+[INFO] Surefire report directory: /Users/hungrated/Documents/Codes/IDEA/stock/stock-dao/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running StockDAOTest
+Stock ids:
+000000 000001 000002 000003 000004 
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec
+
+Results :
+
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --------------------< edu.zju.cst.w3:stock-service >--------------------
+[INFO] Building stock-service 0.0.1-SNAPSHOT                              [3/3]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ stock-service ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ stock-service ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ stock-service ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/hungrated/Documents/Codes/IDEA/stock/stock-service/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ stock-service ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to /Users/hungrated/Documents/Codes/IDEA/stock/stock-service/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ stock-service ---
+[INFO] Surefire report directory: /Users/hungrated/Documents/Codes/IDEA/stock/stock-service/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running StockServiceTest
+Stock ids:
+000000 000001 000002 000003 000004 
+Best stock: 000000 aaa
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] stock 0.0.1-SNAPSHOT ............................... SUCCESS [  0.006 s]
+[INFO] stock-dao .......................................... SUCCESS [  1.647 s]
+[INFO] stock-service 0.0.1-SNAPSHOT ....................... SUCCESS [  0.325 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.090 s
+[INFO] Finished at: 2018-10-08T19:39:35+08:00
+[INFO] ------------------------------------------------------------------------

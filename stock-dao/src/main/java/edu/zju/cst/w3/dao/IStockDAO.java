@@ -5,7 +5,10 @@ import java.util.List;
 
 public interface IStockDAO {
     public double getStockClosingPrice(String stockId, Date date);
-    public void insertStockClosingPrice(String stockId, Date date);
+
+    public void insertStockClosingPrice(String stockId, Date date, double closingPrice);
+
     public String getStockName(String stockId);
+
     public List<String> getStockIdList();
 }

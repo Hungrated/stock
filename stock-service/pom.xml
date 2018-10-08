@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>stock-dao</artifactId>
+    <artifactId>stock-service</artifactId>
     <build>
         <plugins>
             <plugin>
@@ -31,9 +31,9 @@
             <version>4.3</version>
         </dependency>
         <dependency>
-            <groupId>com.opencsv</groupId>
-            <artifactId>opencsv</artifactId>
-            <version>3.3</version>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>stock-dao</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

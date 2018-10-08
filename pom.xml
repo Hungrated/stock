@@ -10,6 +10,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>stock-dao</module>
+        <module>stock-service</module>
     </modules>
 
 
