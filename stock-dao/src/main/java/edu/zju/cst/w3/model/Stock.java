@@ -3,7 +3,7 @@ package edu.zju.cst.w3.model;
 import java.util.Date;
 
 /**
- * class Stock
+ * Stock
  *
  * 股票信息
  */

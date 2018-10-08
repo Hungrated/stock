@@ -9,6 +9,10 @@ A maven demo.
 * 存储与查询股票信息
 * 从数据集中选出指定日期范围的最佳涨幅股票
 
+### 文 档
+
+访问：[**JavaDoc**](./doc/javadoc/index.html)
+
 ### 测 试
 
 基于JUnit编写测试用例，DAO与Service层代码测试覆盖率超过90%，使用Cobertura工具。

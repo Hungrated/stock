@@ -18,6 +18,10 @@ public class StockService implements IStockService {
 
     /**
      * 根据id和日期查询股票收盘价
+     *
+     * @param stockId 股票id
+     * @param date 日期
+     * @return res
      */
     public double getStockClosingPrice(String stockId, Date date) {
         return stockDAO.getStockClosingPrice(stockId, date);
@@ -25,6 +29,10 @@ public class StockService implements IStockService {
 
     /**
      * 插入股票收盘价信息
+     *
+     * @param stockId 股票id
+     * @param date 日期
+     * @param closingPrice 收盘价
      */
     public void insertStockClosingPrice(String stockId, Date date, double closingPrice) {
         stockDAO.insertStockClosingPrice(stockId, date, closingPrice);
@@ -32,6 +40,9 @@ public class StockService implements IStockService {
 
     /**
      * 根据id和查询股票名称
+     *
+     * @param id 股票id
+     * @return name
      */
     public String getStockName(String id) {
         return stockDAO.getStockName(id);
@@ -39,6 +50,8 @@ public class StockService implements IStockService {
 
     /**
      * 获取股票id列表
+     *
+     * @return stockIdList
      */
     public List<String> getStockIdList() {
         return stockDAO.getStockIdList();
@@ -47,6 +60,9 @@ public class StockService implements IStockService {
 
     /**
      * 获取指定时段内涨幅最大股票id
+     *
+     * @param startDate 起始日期
+     * @param endDate 截止日期
      */
     public String getBestStock(Date startDate, Date endDate) {
 

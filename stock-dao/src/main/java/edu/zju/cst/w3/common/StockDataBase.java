@@ -9,7 +9,7 @@ import java.util.List;
 import edu.zju.cst.w3.model.Stock;
 
 /**
- * Class StockDataBase
+ * StockDataBase
  *
  * 模拟股票数据库和查询操作
  */

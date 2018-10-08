@@ -19,6 +19,9 @@ public class Utils {
 
     /**
      * 读取csv文件
+     *
+     * @param path csv文件路径
+     * @return list
      */
     public List<String[]> readCsv(String path) throws ParseException {
         List<String[]> list = new ArrayList();
@@ -41,6 +44,9 @@ public class Utils {
 
     /**
      * 写csv文件
+     *
+     * @param path csv文件路径
+     * @param list 信息列表
      */
     public static void writeFile(String path, List<String[]> list) {
         File csv = new File(path);
@@ -63,6 +69,9 @@ public class Utils {
 
     /**
      * 将csv解析出的数据转换成Stock类型列表
+     *
+     * @param stockList 股票信息列表
+     * @return res
      */
     public static List<Stock> parseStockList(List<String[]> stockList) throws ParseException {
         List<Stock> res = new ArrayList();
@@ -79,6 +88,9 @@ public class Utils {
 
     /**
      * 将Stock类型列表转换为可写csv的列表格式
+     *
+     * @param stockList 股票信息列表
+     * @return res
      */
     public static List<String[]> parseStringArrayList(List<Stock> stockList) {
         List<String[]> res = new ArrayList();
@@ -92,6 +104,9 @@ public class Utils {
 
     /**
      * 字符串转为Date对象
+     *
+     * @param dateString 日期字符串
+     * @return date
      */
     public static Date convertStringToDate(String dateString) throws ParseException {
         Date date = null;
@@ -105,6 +120,9 @@ public class Utils {
 
     /**
      * Date对象转换为字符串
+     *
+     * @param date 日期
+     * @return dateString
      */
     public static String convertDateToString(Date date) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
