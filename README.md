@@ -17,5 +17,7 @@ A maven demo.
 
 基于JUnit编写测试用例，DAO与Service层代码测试覆盖率超过90%，使用Cobertura工具。
 
+测试log：[**Test Log**](./test.log)
+
 ![](./doc/Cobertura-dao.png)
 ![](./doc/Cobertura-service.png)
