@@ -1,4 +1,6 @@
 import edu.zju.cst.w3.common.StockDataBase;
+import edu.zju.cst.w3.common.Utils;
+import edu.zju.cst.w3.model.Stock;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -6,6 +8,9 @@ import org.junit.Test;
 
 import edu.zju.cst.w3.dao.IStockDAO;
 import edu.zju.cst.w3.dao.StockDAO;
+
+import java.util.Date;
+import java.util.List;
 
 public class StockDAOTest {
     private IStockDAO stockDAO;
@@ -17,30 +22,29 @@ public class StockDAOTest {
 
     @Test
     public void testGetStockClosingPrice() throws Exception {
-
+        stockDAO.getStockClosingPrice("000000", Utils.convertStringToDate("2018-01-01"));
     }
 
     @Test
     public void testInsertStockClosingPrice() throws Exception {
 
-
     }
 
     @Test
     public void testGetStockName() throws Exception {
-
-
+        stockDAO.getStockName("000001");
     }
 
     @Test
     public void testGetStockIdList() throws Exception {
-        StockDataBase db = new StockDataBase();
-        db.print();
-
+        List<String> stockIdList = stockDAO.getStockIdList();
+        for (String stockId : stockIdList) {
+            System.out.println(stockId);
+        }
     }
 
     @After
     public void tearDown() throws Exception {
-
+        // empty
     }
 }

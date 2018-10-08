@@ -9,17 +9,31 @@ public class Stock {
     private double closingPrice;
     private Date date;
 
-    public Stock() {
+    public Stock(String id, String name, double closingPrice, Date date) {
+        this.id = id;
+        this.name = name;
+        this.closingPrice = closingPrice;
+        this.date = date;
+    }
 
+    public String getId() {
+        return id;
+    }
 
-
+    public String getName() {
+        return name;
     }
 
     public double getClosingPrice() {
         return closingPrice;
     }
 
+    public Date getDate() {
+        return date;
+    }
 
-
+    public void print() {
+        System.out.println(this.id + " | " + this.name + " | " + this.closingPrice + " | " + this.date);
+    }
 
 }

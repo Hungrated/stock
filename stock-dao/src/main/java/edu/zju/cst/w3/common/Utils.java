@@ -1,6 +1,8 @@
 package edu.zju.cst.w3.common;
 
 import java.io.*;
+import java.security.spec.ECField;
+import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,11 +13,11 @@ import java.util.List;
 import com.opencsv.CSVParser;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
+import edu.zju.cst.w3.model.Stock;
 
 public class Utils {
-    public List<String[]> readCsv(String path) {
-        List<String[]> list = new ArrayList() {
-        };
+    public List<String[]> readCsv(String path) throws ParseException {
+        List<String[]> list = new ArrayList();
         try {
             DataInputStream in = new DataInputStream(new FileInputStream(new File(path)));
             // CSVReader csvReader = new CSVReader(new InputStreamReader(in, "GBK"));
@@ -55,8 +57,37 @@ public class Utils {
         }
     }
 
-    public static Date convertStringToDate(String dateString) {
-        return new Date(dateString);
+    public static List<Stock> parseStockList(List<String[]> stockList) throws ParseException {
+        List<Stock> res = new ArrayList();
+        for (String[] stock : stockList) {
+            try {
+                res.add(new Stock(stock[0], stock[1],
+                        Double.parseDouble(stock[2]), Utils.convertStringToDate(stock[3])));
+            } catch (Exception e) {
+                // empty
+            }
+        }
+        return res;
+    }
+
+    public static List<String[]> parseStringArrayList(List<Stock> stockList) {
+        List<String[]> res = new ArrayList();
+        for (Stock stock : stockList) {
+            String[] stringArray = {stock.getId(), stock.getName(),
+                    Double.toString(stock.getClosingPrice()), Utils.convertDateToString(stock.getDate())};
+            res.add(stringArray);
+        }
+        return res;
+    }
+
+    public static Date convertStringToDate(String dateString) throws ParseException {
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
+        } catch (Exception e) {
+            // empty
+        }
+        return date;
     }
 
     public static String convertDateToString(Date date) {
