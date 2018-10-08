@@ -7,6 +7,10 @@ import java.util.List;
 import edu.zju.cst.w3.model.Stock;
 
 public class Utils2 {
+
+    /**
+     * 根据时间范围查询股票信息列表
+     */
     public List<Stock> queryAllByDateRange(List<Stock> stockList, Date startDate, Date endDate) {
         List<Stock> res = new ArrayList<Stock>();
         for (Stock stock : stockList) {

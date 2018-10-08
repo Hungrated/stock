@@ -16,6 +16,10 @@ import com.opencsv.CSVWriter;
 import edu.zju.cst.w3.model.Stock;
 
 public class Utils {
+
+    /**
+     * 读取csv文件
+     */
     public List<String[]> readCsv(String path) throws ParseException {
         List<String[]> list = new ArrayList();
         try {
@@ -35,6 +39,9 @@ public class Utils {
         return list;
     }
 
+    /**
+     * 写csv文件
+     */
     public static void writeFile(String path, List<String[]> list) {
         File csv = new File(path);
 //        if (!csv.exists()) {
@@ -54,6 +61,9 @@ public class Utils {
         }
     }
 
+    /**
+     * 将csv解析出的数据转换成Stock类型列表
+     */
     public static List<Stock> parseStockList(List<String[]> stockList) throws ParseException {
         List<Stock> res = new ArrayList();
         for (String[] stock : stockList) {
@@ -67,6 +77,9 @@ public class Utils {
         return res;
     }
 
+    /**
+     * 将Stock类型列表转换为可写csv的列表格式
+     */
     public static List<String[]> parseStringArrayList(List<Stock> stockList) {
         List<String[]> res = new ArrayList();
         for (Stock stock : stockList) {
@@ -77,6 +90,9 @@ public class Utils {
         return res;
     }
 
+    /**
+     * 字符串转为Date对象
+     */
     public static Date convertStringToDate(String dateString) throws ParseException {
         Date date = null;
         try {
@@ -87,6 +103,9 @@ public class Utils {
         return date;
     }
 
+    /**
+     * Date对象转换为字符串
+     */
     public static String convertDateToString(Date date) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         String dateString = formatter.format(date);

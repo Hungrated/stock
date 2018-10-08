@@ -8,6 +8,11 @@ import java.util.List;
 
 import edu.zju.cst.w3.model.Stock;
 
+/**
+ * Class StockDataBase
+ *
+ * 模拟股票数据库和查询操作
+ */
 public class StockDataBase {
     private static String CSV_DIR = "../stock.csv";
     private List<Stock> stockList;

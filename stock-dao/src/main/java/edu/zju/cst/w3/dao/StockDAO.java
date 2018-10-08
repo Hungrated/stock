@@ -14,6 +14,9 @@ public class StockDAO implements IStockDAO {
         db = new StockDataBase();
     }
 
+    /**
+     * 根据id和日期查询股票收盘价
+     */
     public double getStockClosingPrice(String stockId, Date date) {
         List<Stock> stockList = db.queryAllById(stockId);
         double res = 0;
@@ -26,6 +29,9 @@ public class StockDAO implements IStockDAO {
         return res;
     }
 
+    /**
+     * 插入股票收盘价信息
+     */
     public void insertStockClosingPrice(String stockId, Date date, double closingPrice) {
         String stockName = getStockName(stockId);
         List<Stock> stockList = db.getStockList();
@@ -33,11 +39,17 @@ public class StockDAO implements IStockDAO {
         db.save(stockList);
     }
 
+    /**
+     * 根据id和查询股票名称
+     */
     public String getStockName(String stockId) {
         Stock stock = db.queryFirstById(stockId);
         return stock.getName();
     }
 
+    /**
+     * 获取股票id列表
+     */
     public List<String> getStockIdList() {
         List<Stock> stockList = db.getStockList();
         List<String> res = new ArrayList<String>();

@@ -2,6 +2,11 @@ package edu.zju.cst.w3.model;
 
 import java.util.Date;
 
+/**
+ * class Stock
+ *
+ * 股票信息
+ */
 public class Stock {
 
     private String id;
