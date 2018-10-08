@@ -1,0 +1,17 @@
+# Stock
+
+A maven demo.
+
+### 概 述
+
+基于Maven实现微型股票数据系统。主要功能有：
+
+* 存储与查询股票信息
+* 从数据集中选出指定日期范围的最佳涨幅股票
+
+### 测 试
+
+基于JUnit编写测试用例，DAO与Service层代码测试覆盖率超过90%，使用Cobertura工具。
+
+![](./doc/Cobertura-dao.png)
+![](./doc/Cobertura-service.png)

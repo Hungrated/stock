@@ -34,8 +34,9 @@ public class StockService implements IStockService {
 
     public String getBestStock(Date startDate, Date endDate) {
 
+        Utils2 utils2 = new Utils2();
         List<String> stockIdList = stockDAO.getStockIdList();
-        List<Stock> stockList = Utils2.queryAllByDateRange(stockDAO.db.getStockList(), startDate, endDate);
+        List<Stock> stockList = utils2.queryAllByDateRange(stockDAO.db.getStockList(), startDate, endDate);
         Stock bestStock = null;
         double maxStockClosingPriceDiff = MIN_CLOSING_PRICE_DIFF;
 

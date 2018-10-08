@@ -7,7 +7,7 @@ import java.util.List;
 import edu.zju.cst.w3.model.Stock;
 
 public class Utils2 {
-    public static List<Stock> queryAllByDateRange(List<Stock> stockList, Date startDate, Date endDate) {
+    public List<Stock> queryAllByDateRange(List<Stock> stockList, Date startDate, Date endDate) {
         List<Stock> res = new ArrayList<Stock>();
         for (Stock stock : stockList) {
             if ((stock.getDate().getTime() >= startDate.getTime())
