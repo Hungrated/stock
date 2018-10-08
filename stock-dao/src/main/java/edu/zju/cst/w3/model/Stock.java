@@ -32,8 +32,4 @@ public class Stock {
         return date;
     }
 
-    public void print() {
-        System.out.println(this.id + " | " + this.name + " | " + this.closingPrice + " | " + this.date);
-    }
-
 }

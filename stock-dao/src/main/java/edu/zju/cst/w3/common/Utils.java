@@ -20,7 +20,6 @@ public class Utils {
         List<String[]> list = new ArrayList();
         try {
             DataInputStream in = new DataInputStream(new FileInputStream(new File(path)));
-            // CSVReader csvReader = new CSVReader(new InputStreamReader(in, "GBK"));
             CSVReader csvReader = new CSVReader(new InputStreamReader(in, "utf-8"),
                     CSVParser.DEFAULT_SEPARATOR, CSVParser.DEFAULT_QUOTE_CHARACTER,
                     CSVParser.DEFAULT_ESCAPE_CHARACTER, 0);
@@ -31,27 +30,27 @@ public class Utils {
             csvReader.close();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            // empty
         }
         return list;
     }
 
     public static void writeFile(String path, List<String[]> list) {
         File csv = new File(path);
-        if (!csv.exists()) {
-            try {
-                csv.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+//        if (!csv.exists()) {
+//            try {
+//                csv.createNewFile();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
         try {
             CSVWriter writer = new CSVWriter(new OutputStreamWriter(new FileOutputStream(csv), "utf-8"),
                     CSVWriter.DEFAULT_SEPARATOR, CSVWriter.DEFAULT_QUOTE_CHARACTER);
             writer.writeAll(list);
             writer.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            // empty
         }
     }
 

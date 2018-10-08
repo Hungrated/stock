@@ -16,12 +16,14 @@ public class StockDAO implements IStockDAO {
 
     public double getStockClosingPrice(String stockId, Date date) {
         List<Stock> stockList = db.queryAllById(stockId);
+        double res = 0;
         for (Stock stock : stockList) {
-            if (stock.getDate().equals(date)) {
-                return stock.getClosingPrice();
+            if (stock.getDate().getTime() == date.getTime()) {
+                res = stock.getClosingPrice();
+                break;
             }
         }
-        return 0;
+        return res;
     }
 
     public void insertStockClosingPrice(String stockId, Date date, double closingPrice) {
@@ -46,25 +48,11 @@ public class StockDAO implements IStockDAO {
         List<String> newRes = new ArrayList(set);
         Collections.sort(newRes, new Comparator<String>() {
             public int compare(String o1, String o2) {
-                if (o1 == null || o2 == null) {
-                    return -1;
-                }
-                if (o1.length() > o2.length()) {
-                    return 1;
-                }
-                if (o1.length() < o2.length()) {
-                    return -1;
-                }
                 if (o1.compareTo(o2) > 0) {
                     return 1;
-                }
-                if (o1.compareTo(o2) < 0) {
+                } else {
                     return -1;
                 }
-                if (o1.compareTo(o2) == 0) {
-                    return 0;
-                }
-                return 0;
             }
         });
         return newRes;

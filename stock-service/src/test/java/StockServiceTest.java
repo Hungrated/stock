@@ -1,27 +1,28 @@
-import edu.zju.cst.w3.service.IStockService;
-import edu.zju.cst.w3.service.StockService;
+import java.util.List;
+
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import edu.zju.cst.w3.common.EntitiesHelper;
 import edu.zju.cst.w3.common.Utils;
-
-
-import java.util.List;
+import edu.zju.cst.w3.model.Stock;
+import edu.zju.cst.w3.service.IStockService;
+import edu.zju.cst.w3.service.StockService;
 
 public class StockServiceTest {
     private IStockService stockService;
+    private static Stock baseStock;
 
     @Before
     public void setUp() throws Exception {
         stockService = new StockService();
+        baseStock = new Stock("000000", "aaa",
+                1.0, Utils.convertStringToDate("2018-01-01"));
     }
 
     @Test
     public void testGetStockClosingPrice() throws Exception {
-        double expectedClosingPrice = EntitiesHelper.baseStock.getClosingPrice();
+        double expectedClosingPrice = baseStock.getClosingPrice();
         double actualClosingPrice = stockService.getStockClosingPrice("000000",
                 Utils.convertStringToDate("2018-01-01"));
         Assert.assertEquals(expectedClosingPrice, actualClosingPrice);
@@ -35,7 +36,7 @@ public class StockServiceTest {
 
     @Test
     public void testGetStockName() throws Exception {
-        String expectedStockName = EntitiesHelper.baseStock.getName();
+        String expectedStockName = baseStock.getName();
         String actualStockName = stockService.getStockName("000000");
         Assert.assertEquals(expectedStockName, actualStockName);
     }
@@ -52,10 +53,15 @@ public class StockServiceTest {
 
     @Test
     public void testGetBestStock() throws Exception {
-        String expectedStockId = EntitiesHelper.baseStock.getId();
+        String expectedStockId = baseStock.getId();
         String actualStockId = stockService.getBestStock(Utils.convertStringToDate("2018-01-01"),
                 Utils.convertStringToDate("2018-01-03"));
         Assert.assertEquals(expectedStockId, actualStockId);
+
+        String expectedStockId2 = "null";
+        String actualStockId2 = stockService.getBestStock(Utils.convertStringToDate("2018-01-07"),
+                Utils.convertStringToDate("2018-01-10"));
+        Assert.assertEquals(expectedStockId2, actualStockId2);
     }
 
     @After

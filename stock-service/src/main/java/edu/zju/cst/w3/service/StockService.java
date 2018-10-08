@@ -3,6 +3,7 @@ package edu.zju.cst.w3.service;
 import java.text.ParseException;
 import java.util.*;
 
+import edu.zju.cst.w3.common.Utils2;
 import edu.zju.cst.w3.dao.StockDAO;
 import edu.zju.cst.w3.model.Stock;
 
@@ -34,7 +35,7 @@ public class StockService implements IStockService {
     public String getBestStock(Date startDate, Date endDate) {
 
         List<String> stockIdList = stockDAO.getStockIdList();
-        List<Stock> stockList = stockDAO.db.queryAllByDateRange(startDate, endDate);
+        List<Stock> stockList = Utils2.queryAllByDateRange(stockDAO.db.getStockList(), startDate, endDate);
         Stock bestStock = null;
         double maxStockClosingPriceDiff = MIN_CLOSING_PRICE_DIFF;
 

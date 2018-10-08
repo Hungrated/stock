@@ -27,12 +27,6 @@ public class StockDataBase {
         return stockList;
     }
 
-    public void print() {
-        for (Stock stock : stockList) {
-            stock.print();
-        }
-    }
-
     public void save(List<Stock> list) {
         List<String[]> stringArrayList = Utils.parseStringArrayList(list);
         Utils.writeFile(CSV_DIR, stringArrayList);
@@ -41,7 +35,7 @@ public class StockDataBase {
     public List<Stock> queryAllById(String stockId) {
         List<Stock> res = new ArrayList<Stock>();
         for (Stock stock : stockList) {
-            if (stock.getId() == stockId) {
+            if (stock.getId().equals(stockId)) {
                 res.add(stock);
             }
         }
@@ -59,14 +53,4 @@ public class StockDataBase {
         return res;
     }
 
-    public List<Stock> queryAllByDateRange(Date startDate, Date endDate) {
-        List<Stock> res = new ArrayList<Stock>();
-        for (Stock stock : stockList) {
-            if ((stock.getDate().getTime() >= startDate.getTime())
-                    && (stock.getDate().getTime() <= endDate.getTime())) {
-                res.add(stock);
-            }
-        }
-        return res;
-    }
 }
